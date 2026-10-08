@@ -1,0 +1,230 @@
+<html>
+<head>
+<title>Program.cs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6c95eb;}
+.s1 { color: #d0d0d0;}
+.s2 { color: #bdbdbd;}
+.s3 { color: #85c46c; font-style: italic;}
+.s4 { color: #c9a26d;}
+.s5 { color: #ed94c0;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Program.cs</font>
+</center></td></tr></table>
+<pre><span class="s0">using </span><span class="s1">System</span><span class="s2">;</span>
+
+<span class="s0">class </span><span class="s1">Program</span>
+<span class="s2">{</span>
+    <span class="s3">// 5.1 ประกาศตัวแปร</span>
+    <span class="s0">static string</span><span class="s2">[] </span><span class="s1">menuName </span><span class="s2">=</span>
+    <span class="s2">{</span>
+        <span class="s4">&quot;เอสเปรสโซ&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;อเมริกาโน&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;ลาเต้&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;คาปูชิโน&quot;</span><span class="s2">,</span>
+        <span class="s4">&quot;มอคค่า&quot;</span>
+    <span class="s2">};</span>
+
+    <span class="s0">static int</span><span class="s2">[] </span><span class="s1">menuPrice </span><span class="s2">= { </span><span class="s5">40</span><span class="s2">, </span><span class="s5">45</span><span class="s2">, </span><span class="s5">55</span><span class="s2">, </span><span class="s5">55</span><span class="s2">, </span><span class="s5">60 </span><span class="s2">};</span>
+    <span class="s0">static int</span><span class="s2">[] </span><span class="s1">qtySold </span><span class="s2">= </span><span class="s0">new int</span><span class="s2">[</span><span class="s5">5</span><span class="s2">];</span>
+
+    <span class="s3">// 5.4 เมธอดคำนวณยอดขายรวม</span>
+    <span class="s0">static int </span><span class="s1">SumTotal</span><span class="s2">(</span><span class="s0">int</span><span class="s2">[] </span><span class="s1">qtySold</span><span class="s2">, </span><span class="s0">int</span><span class="s2">[] </span><span class="s1">menuPrice</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s0">int </span><span class="s1">total </span><span class="s2">= </span><span class="s5">0</span><span class="s2">;</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">qtySold</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+        <span class="s2">{</span>
+            <span class="s1">total </span><span class="s2">+= </span><span class="s1">qtySold</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] * </span><span class="s1">menuPrice</span><span class="s2">[</span><span class="s1">i</span><span class="s2">];</span>
+        <span class="s2">}</span>
+
+        <span class="s0">return </span><span class="s1">total</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// เมธอดสำหรับแสดงรายการเมนูกาแฟและราคา (เพิ่มเข้ามาเพื่อให้โค้ดสะอาดและเรียกใช้ง่าย)</span>
+    <span class="s0">static void </span><span class="s1">ShowCoffeeMenu</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;----------- รายการกาแฟ -----------&quot;</span><span class="s2">);</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">menuName</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+        <span class="s2">{</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;{0}. {1} (ราคา {2} บาท)&quot;</span><span class="s2">, </span><span class="s1">i </span><span class="s2">+ </span><span class="s5">1</span><span class="s2">, </span><span class="s1">menuName</span><span class="s2">[</span><span class="s1">i</span><span class="s2">], </span><span class="s1">menuPrice</span><span class="s2">[</span><span class="s1">i</span><span class="s2">]);</span>
+        <span class="s2">}</span>
+        <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;---------------------------------&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">static void </span><span class="s1">Main</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">int </span><span class="s1">choice </span><span class="s2">= -</span><span class="s5">1</span><span class="s2">;</span>
+
+        <span class="s3">// 5.2 เมนูหลัก</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">choice </span><span class="s2">!= </span><span class="s5">0</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">();</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;===== ระบบขายกาแฟ BEAN BAR =====&quot;</span><span class="s2">);</span>
+            
+            <span class="s3">// แสดงรายการเมนูกาแฟและราคาให้เห็นในหน้าแรกเลย</span>
+            <span class="s1">ShowCoffeeMenu</span><span class="s2">(); </span>
+
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;[ เมนูระบบ ]&quot;</span><span class="s2">);</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;1. ขายเมนู&quot;</span><span class="s2">);</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;2. สรุปยอดขาย&quot;</span><span class="s2">);</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;3. ค้นหาเมนูขายดี&quot;</span><span class="s2">);</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;0. ออกจากโปรแกรม&quot;</span><span class="s2">);</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">Write</span><span class="s2">(</span><span class="s4">&quot;เลือกเมนู : &quot;</span><span class="s2">);</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">!</span><span class="s0">int</span><span class="s2">.</span><span class="s1">TryParse</span><span class="s2">(</span><span class="s1">Console</span><span class="s2">.</span><span class="s1">ReadLine</span><span class="s2">(), </span><span class="s0">out </span><span class="s1">choice</span><span class="s2">))</span>
+            <span class="s2">{</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;กรุณากรอกตัวเลขเท่านั้น&quot;</span><span class="s2">);</span>
+                <span class="s0">continue</span><span class="s2">;</span>
+            <span class="s2">}</span>
+
+            <span class="s3">// 5.3 เมนูที่ 1 ขายเมนู</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">choice </span><span class="s2">== </span><span class="s5">1</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s0">int </span><span class="s1">menuNo</span><span class="s2">;</span>
+
+                <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">();</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;===== หน้าต่างการขาย =====&quot;</span><span class="s2">);</span>
+                    <span class="s3">// แสดงเมนูซ้ำอีกครั้งเพื่อให้พนักงานดูหมายเลขเมนู (1-5) ได้สะดวกตอนคีย์ข้อมูล</span>
+                    <span class="s1">ShowCoffeeMenu</span><span class="s2">(); </span>
+                    
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">Write</span><span class="s2">(</span><span class="s4">&quot;หมายเลขเมนูที่ต้องการขาย (1-5) : &quot;</span><span class="s2">);</span>
+
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">!</span><span class="s0">int</span><span class="s2">.</span><span class="s1">TryParse</span><span class="s2">(</span><span class="s1">Console</span><span class="s2">.</span><span class="s1">ReadLine</span><span class="s2">(), </span><span class="s0">out </span><span class="s1">menuNo</span><span class="s2">))</span>
+                    <span class="s2">{</span>
+                        <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;กรุณากรอกตัวเลข 1-5 เท่านั้น&quot;</span><span class="s2">);</span>
+                        <span class="s0">continue</span><span class="s2">;</span>
+                    <span class="s2">}</span>
+
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">menuNo </span><span class="s2">&gt;= </span><span class="s5">1 </span><span class="s2">&amp;&amp; </span><span class="s1">menuNo </span><span class="s2">&lt;= </span><span class="s5">5</span><span class="s2">)</span>
+                    <span class="s2">{</span>
+                        <span class="s0">break</span><span class="s2">;</span>
+                    <span class="s2">}</span>
+
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;ไม่มีเมนูนี้ กรุณากรอกหมายเลข 1-5 ใหม่&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+
+                <span class="s0">int </span><span class="s1">index </span><span class="s2">= </span><span class="s1">menuNo </span><span class="s2">- </span><span class="s5">1</span><span class="s2">;</span>
+
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">Write</span><span class="s2">(</span><span class="s4">&quot;จำนวนแก้วที่ขาย : &quot;</span><span class="s2">);</span>
+                <span class="s0">int </span><span class="s1">qty</span><span class="s2">;</span>
+
+                <span class="s0">while </span><span class="s2">(</span><span class="s1">!</span><span class="s0">int</span><span class="s2">.</span><span class="s1">TryParse</span><span class="s2">(</span><span class="s1">Console</span><span class="s2">.</span><span class="s1">ReadLine</span><span class="s2">(), </span><span class="s0">out </span><span class="s1">qty</span><span class="s2">) || </span><span class="s1">qty </span><span class="s2">&lt;= </span><span class="s5">0</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">Write</span><span class="s2">(</span><span class="s4">&quot;กรุณากรอกจำนวนแก้วที่มากกว่า 0 : &quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+
+                <span class="s0">int </span><span class="s1">money </span><span class="s2">= </span><span class="s1">menuPrice</span><span class="s2">[</span><span class="s1">index</span><span class="s2">] * </span><span class="s1">qty</span><span class="s2">;</span>
+                <span class="s1">qtySold</span><span class="s2">[</span><span class="s1">index</span><span class="s2">] += </span><span class="s1">qty</span><span class="s2">;</span>
+
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">();</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span>
+                    <span class="s4">&quot;-&gt; ขาย {0} จำนวน {1} แก้ว เป็นเงิน {2} บาท สำเร็จ!&quot;</span><span class="s2">,</span>
+                    <span class="s1">menuName</span><span class="s2">[</span><span class="s1">index</span><span class="s2">],</span>
+                    <span class="s1">qty</span><span class="s2">,</span>
+                    <span class="s1">money</span>
+                <span class="s2">);</span>
+            <span class="s2">}</span>
+
+            <span class="s3">// 5.5 เมนูที่ 2 สรุปยอดขาย</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">choice </span><span class="s2">== </span><span class="s5">2</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">();</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;===== สรุปยอดขาย =====&quot;</span><span class="s2">);</span>
+
+                <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">menuName</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+                <span class="s2">{</span>
+                    <span class="s0">int </span><span class="s1">total </span><span class="s2">= </span><span class="s1">qtySold</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] * </span><span class="s1">menuPrice</span><span class="s2">[</span><span class="s1">i</span><span class="s2">];</span>
+
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span>
+                        <span class="s4">&quot;{0} ราคา {1} บาท จำนวนที่ขาย {2} แก้ว เป็นเงิน {3} บาท&quot;</span><span class="s2">,</span>
+                        <span class="s1">menuName</span><span class="s2">[</span><span class="s1">i</span><span class="s2">],</span>
+                        <span class="s1">menuPrice</span><span class="s2">[</span><span class="s1">i</span><span class="s2">],</span>
+                        <span class="s1">qtySold</span><span class="s2">[</span><span class="s1">i</span><span class="s2">],</span>
+                        <span class="s1">total</span>
+                    <span class="s2">);</span>
+                <span class="s2">}</span>
+
+                <span class="s0">int </span><span class="s1">sum </span><span class="s2">= </span><span class="s1">SumTotal</span><span class="s2">(</span><span class="s1">qtySold</span><span class="s2">, </span><span class="s1">menuPrice</span><span class="s2">);</span>
+
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;------------------------------&quot;</span><span class="s2">);</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;ยอดขายรวมทั้งหมด : {0} บาท&quot;</span><span class="s2">, </span><span class="s1">sum</span><span class="s2">);</span>
+
+                <span class="s3">// จัดระดับผลประกอบการ</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">sum </span><span class="s2">&gt;= </span><span class="s5">3000</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;ระดับผลประกอบการ : ยอดเยี่ยม&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">sum </span><span class="s2">&gt;= </span><span class="s5">1500</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;ระดับผลประกอบการ : ดี&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">else if </span><span class="s2">(</span><span class="s1">sum </span><span class="s2">&gt;= </span><span class="s5">500</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;ระดับผลประกอบการ : พอใช้&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">else</span>
+                <span class="s2">{</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;ระดับผลประกอบการ : ต้องปรับปรุง&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+
+            <span class="s3">// 5.6 เมนูที่ 3 ค้นหาเมนูขายดี</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">choice </span><span class="s2">== </span><span class="s5">3</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s0">int </span><span class="s1">maxQty </span><span class="s2">= </span><span class="s5">0</span><span class="s2">;</span>
+                <span class="s0">int </span><span class="s1">maxIndex </span><span class="s2">= -</span><span class="s5">1</span><span class="s2">;</span>
+
+                <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">qtySold</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+                <span class="s2">{</span>
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">qtySold</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] &gt; </span><span class="s1">maxQty</span><span class="s2">)</span>
+                    <span class="s2">{</span>
+                        <span class="s1">maxQty </span><span class="s2">= </span><span class="s1">qtySold</span><span class="s2">[</span><span class="s1">i</span><span class="s2">];</span>
+                        <span class="s1">maxIndex </span><span class="s2">= </span><span class="s1">i</span><span class="s2">;</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">maxIndex </span><span class="s2">== -</span><span class="s5">1 </span><span class="s2">|| </span><span class="s1">maxQty </span><span class="s2">== </span><span class="s5">0</span><span class="s2">)</span>
+                <span class="s2">{</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;ยังไม่มีข้อมูลการขาย&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">else</span>
+                <span class="s2">{</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">();</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;===== เมนูขายดี =====&quot;</span><span class="s2">);</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span>
+                        <span class="s4">&quot;เมนูขายดีที่สุด : {0}&quot;</span><span class="s2">,</span>
+                        <span class="s1">menuName</span><span class="s2">[</span><span class="s1">maxIndex</span><span class="s2">]</span>
+                    <span class="s2">);</span>
+                    <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span>
+                        <span class="s4">&quot;จำนวนที่ขายได้ : {0} แก้ว&quot;</span><span class="s2">,</span>
+                        <span class="s1">maxQty</span>
+                    <span class="s2">);</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+
+            <span class="s3">// 5.2 ออกจากโปรแกรม</span>
+            <span class="s0">else if </span><span class="s2">(</span><span class="s1">choice </span><span class="s2">== </span><span class="s5">0</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">();</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;ออกจากโปรแกรม...&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;กรุณาเลือกเมนู 0-3 เท่านั้น&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
